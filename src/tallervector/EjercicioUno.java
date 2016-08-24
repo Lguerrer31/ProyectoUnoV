@@ -55,6 +55,11 @@ public class EjercicioUno extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtL.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtL.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtL, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 130, 70));
@@ -81,7 +86,12 @@ public class EjercicioUno extends javax.swing.JFrame {
         jPanel3.add(cmdC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         cmdL.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        cmdL.setText("Lllenar");
+        cmdL.setText("Llenar");
+        cmdL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdL, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         cmdB.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -125,6 +135,18 @@ public class EjercicioUno extends javax.swing.JFrame {
 
     private void cmdMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMActionPerformed
         // TODO add your handling code here:
+        double s, p, ma, me;
+        for (int i = 0; i < v.length; i++) {
+            s = v[i] + v[i];
+            p = v [i] * v[i];
+        txtR.append("" + v[i] + "\n");
+        txtR.append("Suma" + s);
+        txtR.append("Productoria" + p);
+        }
+        txtL.setEditable(false);
+        cmdC.setEnabled(false);
+        cmdL.setEnabled(false);
+        cmdM.setEnabled(false);
     }//GEN-LAST:event_cmdMActionPerformed
 
     private void cmdBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBActionPerformed
@@ -164,6 +186,25 @@ public class EjercicioUno extends javax.swing.JFrame {
             cmdM.setEnabled(false);
         }
     }//GEN-LAST:event_cmdCActionPerformed
+
+    private void txtLKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtLKeyTyped
+
+    private void cmdLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLActionPerformed
+        // TODO add your handling code here:
+        txtL.setEditable(false);
+        cmdC.setEnabled(false);
+        cmdL.setEnabled(false);
+        cmdM.setEnabled(true);
+    }//GEN-LAST:event_cmdLActionPerformed
 
     /**
      * @param args the command line arguments
