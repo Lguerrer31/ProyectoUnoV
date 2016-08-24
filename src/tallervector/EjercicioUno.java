@@ -16,8 +16,14 @@ public class EjercicioUno extends javax.swing.JFrame {
     /**
      * Creates new form EjercicioUno
      */
+    double v[];
+    
     public EjercicioUno() {
         initComponents();
+        cmdB.setEnabled(false);
+        cmdM.setEnabled(false);
+        cmdL.setEnabled(false);
+        cmdC.setEnabled(true);
     }
 
     /**
@@ -114,6 +120,7 @@ public class EjercicioUno extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMActionPerformed
@@ -122,6 +129,14 @@ public class EjercicioUno extends javax.swing.JFrame {
 
     private void cmdBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBActionPerformed
         // TODO add your handling code here:
+        txtL.setText("");
+        txtR.setText("");
+        v = null;
+        txtL.requestFocusInWindow();
+        txtL.setEditable(true);
+        cmdL.setEnabled(false);
+        cmdM.setEnabled(false);
+        cmdC.setEnabled(true);
     }//GEN-LAST:event_cmdBActionPerformed
 
     private void cmdCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCActionPerformed
@@ -137,6 +152,16 @@ public class EjercicioUno extends javax.swing.JFrame {
         } else {
             longitud = Integer.parseInt(txtL.getText());
             v = new double[longitud];
+            longitud = Integer.parseInt(txtL.getText());
+            v = new double[longitud];
+
+            JOptionPane.showMessageDialog(this, "Vector creado satisfactoriamente");
+            txtL.setEditable(false);
+            
+            cmdB.setEnabled(false);
+            cmdC.setEnabled(false);
+            cmdL.setEnabled(true);
+            cmdM.setEnabled(false);
         }
     }//GEN-LAST:event_cmdCActionPerformed
 
