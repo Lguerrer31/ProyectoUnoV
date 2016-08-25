@@ -220,9 +220,10 @@ public class EjercicioUno extends javax.swing.JFrame {
         }
 
         for (int i = 0; i < v.length; i++) {
-            ma = v[0];
-            me = v[0];
-
+            if (i == 0) {
+                ma = v[0];
+                me = v[0];
+            }
             if (v[i] > ma) {
                 ma = v[i];
             }
